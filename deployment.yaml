@@ -23,19 +23,16 @@ spec:
         resources: {}
 status: {}
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: v1
+kind: Service
 metadata:
-  name: example-flask
+  name: lb-service
+  labels:
+    app: lb-service
 spec:
-  rules:
-  - host: "example.devopspro.in"
-    http:
-      paths:
-      - pathType: 
-        path:
-        backend:
-          service:
-            name: flaskdemo
-            port:
-              number: 5000
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 5000
+  selector:
+    app: flaskdemo
