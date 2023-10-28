@@ -30,11 +30,11 @@ metadata:
 
 spec:
   rules:
-  - host: "example.devopspro.in"
+  - host: "sample-1.devopspro.in"
     http:
       paths:
       - pathType: Prefix
-        path: /sample-1
+        path: "/"
         backend:
           service:
             name: flaskdemo
