@@ -23,6 +23,20 @@ spec:
         resources: {}
 status: {}
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: CI-service
+  labels:
+    app: CI-service
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 5000
+  selector:
+    app: flaskdemo
+---    
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
