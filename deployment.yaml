@@ -32,7 +32,7 @@ spec:
   selector:
     app: flaskdemo
   ports:
-    - port: 5000
+    - port: 80
       targetPort: 5000
   externalIPs:
     - 192.168.49.2    
